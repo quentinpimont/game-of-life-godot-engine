@@ -72,16 +72,8 @@ func get_neighbour_alive(x:int, y:int):
 							nb_neighbour += 1
 	return nb_neighbour
 
-func grid_to_tmp():
-	tmp_grid.clear()
-	for y in range(grid.size()):
-		var row = []
-		for x in range(grid[y].size()):
-			row.append(grid[y][x])
-		tmp_grid.append(row)
-
 func update_grid():
-	grid_to_tmp()
+	tmp_grid = grid.duplicate(true)
 	for y in range(grid.size()):
 		for x in range(grid[y].size()):
 			var neighbour_aive = get_neighbour_alive(x, y)
